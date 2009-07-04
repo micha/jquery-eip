@@ -71,7 +71,7 @@
           "#"+blackoutCloseId+" { "+
             "position: absolute !important; "+
             "z-index: 4000 !important; "+
-            "text-align: right; "+
+            "text-align: center; "+
           "} "+
         "</style>"
       );
@@ -124,7 +124,13 @@
           ok.css("top", oktop+"px");
           ok.css("left", okleft+"px");
           ok.css("width", $("#"+wrapId+"_parent").width()+"px");
-          ok.append($("<input type='button'/>").val("done"));
+          ok.append(
+            $("<input type='button'/>")
+            .val("done")
+            .click(function(event) {
+              $(document).trigger("hoverlay-term", event);  
+            })
+          );
           $("body").append(ok);
         },
         function(event) { 
