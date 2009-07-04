@@ -123,7 +123,7 @@
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
           // ok button
-          var editor  = $("#"+wrapid+"_tbl");
+          var editor  = $("#"+wrapId+"_tbl");
           var oktop   = editor.offset().top + editor.height();
           var okleft  = editor.offset().left;
           var okwidth = editor.width() - 3; // 3px 'padding' on right
