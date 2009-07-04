@@ -105,8 +105,12 @@ h4 {
 
 /* --- MINE --- */
 
-div#content {
+#content {
   width: 40em;
   margin: 25px auto;
   padding: 0px;
+}
+
+#content p {
+  text-align: justify;
 }
