@@ -21,7 +21,13 @@
     <script type="text/javascript" src="http://github.com/micha/jquery-eip/raw/master/jquery.eip.js"></script>
     <script type="text/javascript">
       $(function() {
-        $("h1,h2,h3,h4,p").eip();
+        $("h1,h2,h3,h4,p").addClass("eip");
+        $.eip.init({
+          "background-image" : "url('img/stripes.gif') !important",
+          "opacity" : "0.33",
+          "filter" : "alpha(opacity = 33)",
+          "cursor" : "pointer"
+        });
       });
     </script>
   </head>
