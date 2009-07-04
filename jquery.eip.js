@@ -121,7 +121,7 @@
           var oktop = $("#"+wrapId+"_tbl").offset().top 
                         + $("#"+wrapId+"_tbl").height();
           var okleft = $("#"+wrapId+"_tbl").offset().left;
-          var okwidth = $("#"+wrapId+"_tbl").width() - 5;
+          var okwidth = $("#"+wrapId+"_tbl").width() - 3;
           var ok = $("<div id='"+blackoutCloseId+"'/>");
           ok.css("top",     oktop+"px");
           ok.css("left",    okleft+"px");
