@@ -114,3 +114,7 @@ h4 {
 #content p {
   text-align: justify;
 }
+
+#content #top {
+  text-align: center;
+}
