@@ -70,6 +70,7 @@
           "} "+
           "#"+blackoutCloseId+" { "+
             "position: absolute !important; "+
+            "z-index: 99999 !important; "+
           "} "+
         "</style>"
       );
@@ -115,11 +116,12 @@
           bo.css("height", $("body").height()+"px");
           $("body").append(bo);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
-          var oktop = $("#"+wrapId).offset().top + $("#"+wrapId).height();
-          var okright = $("#"+wrapId).offset().left + $("#"+wrapId).width();
+          var oktop = $("#"+wrapId+"_parent").offset().top 
+                        + $("#"+wrapId+"_parent").height();
+          var okleft = $("#"+wrapId+"_parent").offset().left;
           var ok = $("<div id='"+blackoutCloseId+"'/>");
           ok.css("top", oktop+"px");
-          ok.css("right", okright+"px");
+          ok.css("left", okleft+"px");
           ok.append($("<input type='button'/>").val("done"));
           $("body").append(ok);
         },
