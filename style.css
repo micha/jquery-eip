@@ -118,3 +118,8 @@ h4 {
 #content #top {
   text-align: center;
 }
+
+#loading h2 {
+  background: red;
+  color: white;
+}
