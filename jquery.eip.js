@@ -74,9 +74,6 @@
             "z-index: 4000 !important; "+
             "text-align: right; "+
           "} "+
-          "#"+blackoutCloseId+" > input { "+
-            "margin-right: 3px; "+
-          "} "+
         "</style>"
       );
 
@@ -124,7 +121,7 @@
           var oktop = $("#"+wrapId+"_tbl").offset().top 
                         + $("#"+wrapId+"_tbl").height();
           var okleft = $("#"+wrapId+"_tbl").offset().left;
-          var okwidth = $("#"+wrapId+"_tbl").width();
+          var okwidth = $("#"+wrapId+"_tbl").width() - 5;
           var ok = $("<div id='"+blackoutCloseId+"'/>");
           ok.css("top",     oktop+"px");
           ok.css("left",    okleft+"px");
