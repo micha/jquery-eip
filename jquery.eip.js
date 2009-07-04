@@ -83,6 +83,7 @@
         .click(function() { return false; })
         .dblclick(function() { return false; });
 
+      /*
       var tbar, b1, b2;
       tbar = $("<div/>").attr("id", topbarId);
       tbar.append("<div style='width:20px;float:right'>&nbsp;</div>");
@@ -95,8 +96,7 @@
       b1.val("save");
       b2.val("reset");
       t1.text("Click somewhere");
-
-      $(".eip").eip();
+      */
     }
   };
 
