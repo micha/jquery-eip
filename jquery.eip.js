@@ -17,7 +17,7 @@
         ? (enableVal = $.hoverlay.enabled(val)) 
         : enableVal;
     },
-    init : function() {
+    init : function(hcss) {
       $("head").append(  
         "<style type='text/css'> " +
           "#"+wrapId+" { "+
@@ -70,12 +70,7 @@
         "</style>"
       );
 
-      $.hoverlay.css({
-        "background-image" : "url('/images/stripes.gif') !important",
-        "opacity" : "0.33",
-        "filter" : "alpha(opacity = 33)",
-        "cursor" : "pointer"
-      });
+      if (hcss) $.hoverlay.css(hcss);
 
       $("a").unbind("mousedown")
         .unbind("mouseup")
