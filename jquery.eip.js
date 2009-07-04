@@ -117,7 +117,6 @@
           bo.css("width", $("body").width()+"px");
           bo.css("height", $("body").height()+"px");
           $("body").append(bo);
-
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
           // ok button
