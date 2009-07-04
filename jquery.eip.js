@@ -123,17 +123,17 @@
           var editor  = $("#"+wrapid+"_tbl");
           var oktop   = editor.offset().top + editor.height();
           var okleft  = editor.offset().left;
-          var okwidth = editor.width() - 3; // 3px 'padding' on right
+          var okwidth = editor.width() - 3;
           var ok = $("<div id='"+blackoutCloseId+"'/>");
           ok.css("top",     oktop+"px");
           ok.css("left",    okleft+"px");
           ok.css("width",   okwidth+"px");
           ok.append(
             $("<input type='button'/>")
-              .val("done")
-              .click(function(event) {
-                $(document).trigger("hoverlay-term", event);  
-              })
+            .val("done")
+            .click(function(event) {
+              $(document).trigger("hoverlay-term", event);  
+            })
           );
           $("body").append(ok);
         },
