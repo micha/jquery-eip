@@ -119,7 +119,8 @@ h4 {
   text-align: center;
 }
 
-#loading h2 {
+#loading h2 .red {
+  padding: 2px;
   background: red;
   color: white;
 }
