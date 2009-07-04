@@ -118,13 +118,14 @@
           bo.css("height", $("body").height()+"px");
           $("body").append(bo);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
-          var oktop = $("#"+wrapId+"_parent").offset().top 
-                        + $("#"+wrapId+"_parent").height();
-          var okleft = $("#"+wrapId+"_parent").offset().left;
+          var oktop = $("#"+wrapId+"_tbl").offset().top 
+                        + $("#"+wrapId+"_tbl").height();
+          var okleft = $("#"+wrapId+"_tbl").offset().left;
+          var okwidth = $("#"+wrapId+"_tbl").width();
           var ok = $("<div id='"+blackoutCloseId+"'/>");
-          ok.css("top", oktop+"px");
-          ok.css("left", okleft+"px");
-          ok.css("width", $("#"+wrapId+"_parent").width()+"px");
+          ok.css("top",     oktop+"px");
+          ok.css("left",    okleft+"px");
+          ok.css("width",   okwidth+"px");
           ok.append(
             $("<input type='button'/>")
             .val("done")
