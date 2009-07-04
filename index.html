@@ -27,11 +27,16 @@
           "filter" : "alpha(opacity = 33)",
           "cursor" : "pointer"
         });
+        $("#loading").remove();
+        $("#content").show();
       });
     </script>
   </head>
   <body>
-    <div id='content'>
+    <div id="loading">
+      <h2>Loading...</h2>
+    </div>
+    <div id='content' style="display:none">
       <div id='top'>
         <h1 class="eip">Edit-in-place jQuery Demo</h1>
         <h3 class="eip">Double-click on things, see what happens.</h3>
