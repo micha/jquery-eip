@@ -112,14 +112,12 @@
       a.hoverlay(
         { border : "1px solid black" },
         function(event) { 
-          // blackout overlay
+          $(this).wrap(wrapElem);
           var bo = $("<div id='"+blackoutId+"'/>");
           bo.css("width", $("body").width()+"px");
           bo.css("height", $("body").height()+"px");
           $("body").append(bo);
 
-          // tinymce editor
-          $(this).wrap(wrapElem);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
           // ok button
