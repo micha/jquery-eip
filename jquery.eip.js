@@ -1,15 +1,16 @@
 (function($) {
 
-  var wrapId        = "eip-mce-wrapper";
-  var topbarId      = "eip-topbar";
-  var blackoutId    = "eip-blackout";
-  var helpId        = "eip-help";
+  var wrapId            = "eip-mce-wrapper";
+  var topbarId          = "eip-topbar";
+  var blackoutId        = "eip-blackout";
+  var blackoutCloseId   = "eip-blackout-close";
+  var helpId            = "eip-help";
 
-  var buttonClass   = "eip-button";
+  var buttonClass       = "eip-button";
 
-  var wrapElem      = $("<div/>").attr("id", wrapId);
+  var wrapElem          = $("<div/>").attr("id", wrapId);
 
-  var enableVal     = true;
+  var enableVal         = true;
 
   $.eip = {
     enabled : function(val) {
@@ -67,6 +68,9 @@
             "display:block !important; "+
             "z-index: 99999 !important; "+
           "} "+
+          "#"+blackoutCloseId+" { "+
+            "position: absolute !important; "+
+          "} "+
         "</style>"
       );
 
@@ -111,12 +115,20 @@
           bo.css("height", $("body").height()+"px");
           $("body").append(bo);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
+          var oktop = $("#"+wrapId).offset().top + $("#"+wrapId).height();
+          var okright = $("#"+wrapId).offset().left + $("#"+wrapId).width();
+          var ok = $("<div id='"+blackoutCloseId+"'/>");
+          ok.css("top", oktop+"px");
+          ok.css("right", okright+"px");
+          ok.append($("<input type='button'/>").val("done"));
+          $("body").append(ok);
         },
         function(event) { 
           tinyMCE.execCommand('mceRemoveControl', false, wrapId);
           $("#"+wrapId).children().addClass("eip");
           $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
           $("#"+blackoutId).remove();
+          $("#"+blackoutCloseId).remove();
         }
       );
     });
