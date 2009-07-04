@@ -107,10 +107,7 @@ h4 {
 
 #content {
   width: 40em;
-  margin-top: 5em;
-  margin-left: 2em auto;
-  margin-bottom: 10em;
-  margin-right: 2em auto;
+  margin: 5em auto;
   padding: 0px;
 }
 
