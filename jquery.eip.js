@@ -92,6 +92,8 @@
       b2.val("reset");
       t1.text("Click somewhere");
       */
+
+      $(".eip").eip();
     }
   };
 
