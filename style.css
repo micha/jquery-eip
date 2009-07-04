@@ -1,0 +1,104 @@
+/* --- RESETS --- */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+:focus {
+	outline: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+.hide {
+	display: none;
+}
+
+strong {
+	font-weight: bold;
+	color: #000;
+}
+
+.clear {
+	clear: both;
+}
+
+img.left {
+	float: left;
+	margin: 0 15px 15px 0;
+}
+
+img.right {
+	float: right;
+	margin: 0 0 15px 15px;
+}
+
+/* --- BASIC STYLES --- */
+
+body {
+	font: 13px/22px "Lucida Grande", Lucida sans, sans-serif;
+	color: #545454;
+}
+
+p {
+	margin: 0 0 15px 0;
+}
+
+/* --- LINK STYLES --- */
+
+a:link, a:visited {
+	color: #3f74aa;
+	text-decoration: underline;
+}
+a:hover {
+	color: #3f74aa;
+	text-decoration: none;
+}
+a:active {
+	color: #3f74aa;
+	text-decoration: underline;
+}
+
+/* --- HEADINGS --- */
+
+h1 {
+	font-size: 44px;
+	line-height: 52px;
+	font-weight: bold;
+	color: #3f74aa;
+	text-align: center;
+}
+
+h1 span {
+	color: #3f74aa;
+}
+
+h2 {
+	font-size: 28px;
+	line-height: 32px;
+	color: #3f74aa;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-size: 20px;
+	line-height: 22px;
+	color: #3f74aa;
+	margin-bottom: 20px;
+}
+
+h4 {
+	font-size: 12px;
+	font-weight: bold;
+	color: #272727;
+}
+
