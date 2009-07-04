@@ -112,28 +112,31 @@
       a.hoverlay(
         { border : "1px solid black" },
         function(event) { 
-          $(this).wrap(wrapElem);
+          // blackout overlay
           var bo = $("<div id='"+blackoutId+"'/>");
           bo.css("width", $("body").width()+"px");
           bo.css("height", $("body").height()+"px");
           $("body").append(bo);
+
+          // tinymce editor
+          $(this).wrap(wrapElem);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
           // ok button
           var editor  = $("#"+wrapid+"_tbl");
           var oktop   = editor.offset().top + editor.height();
           var okleft  = editor.offset().left;
-          var okwidth = editor.width() - 3;
+          var okwidth = editor.width() - 3; // 3px 'padding' on right
           var ok = $("<div id='"+blackoutCloseId+"'/>");
           ok.css("top",     oktop+"px");
           ok.css("left",    okleft+"px");
           ok.css("width",   okwidth+"px");
           ok.append(
             $("<input type='button'/>")
-            .val("done")
-            .click(function(event) {
-              $(document).trigger("hoverlay-term", event);  
-            })
+              .val("done")
+              .click(function(event) {
+                $(document).trigger("hoverlay-term", event);  
+              })
           );
           $("body").append(ok);
         },
