@@ -123,6 +123,7 @@
           var ok = $("<div id='"+blackoutCloseId+"'/>");
           ok.css("top", oktop+"px");
           ok.css("left", okleft+"px");
+          ok.css("width", $("#"+wrapId+"_parent").width()+"px");
           ok.append($("<input type='button'/>").val("done"));
           $("body").append(ok);
         },
