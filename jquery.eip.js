@@ -70,7 +70,8 @@
           "} "+
           "#"+blackoutCloseId+" { "+
             "position: absolute !important; "+
-            "z-index: 99999 !important; "+
+            "z-index: 4000 !important; "+
+            "text-align: right; "+
           "} "+
         "</style>"
       );
