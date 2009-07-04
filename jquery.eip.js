@@ -74,6 +74,9 @@
             "z-index: 4000 !important; "+
             "text-align: right; "+
           "} "+
+          "#"+blackoutCloseId+" > input { "+
+            "margin-right: 3px; "+
+          "} "+
         "</style>"
       );
 
