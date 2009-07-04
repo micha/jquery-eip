@@ -69,8 +69,7 @@
             "z-index: 99999 !important; "+
           "} "+
           "#"+blackoutCloseId+" { "+
-            "background: white; "+
-            "padding: 2px; "+
+            "padding: 5px; "+
             "position: absolute !important; "+
             "z-index: 4000 !important; "+
             "text-align: right; "+
