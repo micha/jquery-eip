@@ -120,7 +120,7 @@
 
           // tinymce editor
           var dup = $(this).clone();
-          $("body").append(dup);
+          $(this).after(dup);
           dup.width       ($(this).width()+"px");
           dup.height      ($(this).height()+"px");
           dup.css         ("position", "absolute !important");
