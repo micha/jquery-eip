@@ -123,7 +123,7 @@
           $("body").append(dup);
           dup.width       ($(this).width()+"px");
           dup.height      ($(this).height()+"px");
-          dup.css         ("position", "absolute");
+          dup.css         ("position", "absolute !important");
           dup.css         ("top", $(this).offset().top + "px");
           dup.css         ("left", $(this).offset().left + "px");
           dup.css         ("margin", "0");
