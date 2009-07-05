@@ -126,6 +126,7 @@
           dup.css         ("left", $(this).offset().left + "px");
           dup.css         ("margin", "0");
           dup.wrap(wrapElem);
+          $("body").append(dup);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
           // ok button
