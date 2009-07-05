@@ -7,6 +7,7 @@
   var helpId            = "eip-help";
 
   var buttonClass       = "eip-button";
+  var noMarginClass     = "eip-no-margin";
 
   var wrapElem          = $("<div/>").attr("id", wrapId);
 
@@ -75,6 +76,9 @@
             "z-index: 4000 !important; "+
             "text-align: right; "+
           "} "+
+          "html body ."+noMarginClass+" { "+
+            "margin: 0px !important; "+
+          "} "+
         "</style>"
       );
 
@@ -121,12 +125,12 @@
 
           // tinymce editor
           var dup = $(this).clone();
+          dup.addClass(noMarginClass);
 
           var wrap = $("<div/>").attr("id", wrapId);
           wrap.css    ("position", "absolute");
           wrap.css    ("top", $(this).offset().top + "px");
           wrap.css    ("left", $(this).offset().left + "px");
-          wrap.css    ("margin", "0px !important");
           wrap.append(dup);
 
           $(this).after(wrap);
