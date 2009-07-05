@@ -126,6 +126,7 @@
           wrap.css    ("position", "absolute");
           wrap.css    ("top", $(this).offset().top + "px");
           wrap.css    ("left", $(this).offset().left + "px");
+          wrap.css    ("margin", "0px !important");
           wrap.append(dup);
 
           $(this).after(wrap);
