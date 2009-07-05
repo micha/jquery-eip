@@ -129,14 +129,14 @@
           $("body").append(bo);
 
           var wrap = $("<div/>").attr("id", wrapId);
-          wrap.css    ("position", "absolute");
-          wrap.css    ("top", $(this).offset().top + "px");
-          wrap.css    ("left", $(this).offset().left + "px");
 
           if (this.hasClass("eip-dup")) {
             var dup = $(this).clone();
             dup.addClass(noMarginClass);
             wrap.append(dup);
+            wrap.css    ("position", "absolute");
+            wrap.css    ("top", $(this).offset().top + "px");
+            wrap.css    ("left", $(this).offset().left + "px");
             $("body").append(wrap);
           } else {
             $(this).wrap(wrap);
