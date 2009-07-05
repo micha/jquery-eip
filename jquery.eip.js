@@ -45,7 +45,6 @@
             "filter: alpha(opacity = 66); "+
           "} "+
           "#"+wrapId+" { "+
-            "position: absolute; "+
             "padding-top: 0 !important; "+
             "padding-right: 0 !important; "+
             "padding-bottom: 0 !important; "+
@@ -124,6 +123,7 @@
           $("body").append(dup);
           dup.width       ($(this).width()+"px");
           dup.height      ($(this).height()+"px");
+          dup.css         ("position", "absolute");
           dup.css         ("top", $(this).offset().top + "px");
           dup.css         ("left", $(this).offset().left + "px");
           dup.css         ("margin", "0");
