@@ -128,14 +128,13 @@
           bo.css("height", $("body").height()+"px");
           $("body").append(bo);
 
-          // tinymce editor
-          var dup = $(this).clone();
-          dup.addClass(noMarginClass);
-
           var wrap = $("<div/>").attr("id", wrapId);
           wrap.css    ("position", "absolute");
           wrap.css    ("top", $(this).offset().top + "px");
           wrap.css    ("left", $(this).offset().left + "px");
+
+          var dup = $(this).clone();
+          dup.addClass(noMarginClass);
           wrap.append(dup);
 
           $("body").append(wrap);
