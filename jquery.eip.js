@@ -119,7 +119,13 @@
           $("body").append(bo);
 
           // tinymce editor
-          $(this).wrap(wrapElem);
+          var dup = $(this).clone();
+          dup.width       ($(this).width()+"px");
+          dup.height      ($(this).height()+"px");
+          dup.css         ("top", $(this).offset().top + "px");
+          dup.css         ("left", $(this).offset().left + "px");
+          dup.css         ("margin", "0");
+          dup.wrap(wrapElem);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
           // ok button
