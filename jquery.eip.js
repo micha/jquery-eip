@@ -123,16 +123,17 @@
           var dup = $(this).clone();
           dup.width       ($(this).width()+"px");
           dup.height      ($(this).height()+"px");
-          dup.css         ("position", "absolute");
           dup.css         ("background", "red");
-          dup.css         ("top", $(this).offset().top + "px");
-          dup.css         ("left", $(this).offset().left + "px");
           dup.css         ("margin", "0");
           dup.attr        ("id", wrapId);
 
           $(this).after(dup);
-          //dup.wrap(wrapElem);
-          tinyMCE.execCommand('mceAddControl', false, wrapId);
+          dup.wrap(wrapElem);
+          wrapElem.css    ("position", "absolute");
+          wrapElem.css    ("top", $(this).offset().top + "px");
+          wrapElem.css    ("left", $(this).offset().left + "px");
+
+          //tinyMCE.execCommand('mceAddControl', false, wrapId);
           return false;
 
           // ok button
