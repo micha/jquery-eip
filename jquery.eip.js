@@ -152,6 +152,12 @@
           var editor  = $("#"+wrapId+"_tbl");
           editor.width   ($(this).width()+"px");
           editor.height  ($(this).height()+"px");
+
+          var td = $("td.mceIframeContainer");
+          var fr = $("#eip-mce-wrapper_ifr");
+          if (!$.browser.msie)
+            fr.height(td.height()+"px");
+
           var oktop   = editor.offset().top + editor.height();
           var okleft  = editor.offset().left;
           var okwidth = editor.width() - 3; // 3px 'padding' on right
