@@ -135,7 +135,7 @@
 
           $(this).after(wrap);
 
-          //tinyMCE.execCommand('mceAddControl', false, wrapId);
+          tinyMCE.execCommand('mceAddControl', false, wrapId);
           return false;
 
           // ok button
