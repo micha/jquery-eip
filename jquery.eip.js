@@ -155,8 +155,7 @@
 
           var td = $("td.mceIframeContainer");
           var fr = $("#eip-mce-wrapper_ifr");
-          if (!$.browser.msie)
-            fr.height(td.height()+"px");
+          fr.height(td.height()+"px");
 
           var oktop   = editor.offset().top + editor.height();
           var okleft  = editor.offset().left;
