@@ -124,7 +124,6 @@
           dup.width       ($(this).width()+"px");
           dup.height      ($(this).height()+"px");
           dup.css         ("position", "relative");
-          dup.css         ("background", "red");
           dup.css         ("margin", "0");
 
           var wrap = $("<div/>").attr("id", wrapId);
@@ -141,9 +140,6 @@
           ed1.css     ("position", "absolute");
           ed1.css     ("top", $(this).offset().top + "px");
           ed1.css     ("left", $(this).offset().left + "px");
-          ed1.width   (($(this).width() + 20) + "px");
-
-          return false;
 
           // ok button
           var editor  = $("#"+wrapId+"_tbl");
