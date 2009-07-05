@@ -123,6 +123,7 @@
           var dup = $(this).clone();
           dup.width       ($(this).width()+"px");
           dup.height      ($(this).height()+"px");
+          dup.css         ("position", "relative");
           dup.css         ("background", "red");
           dup.css         ("margin", "0");
 
