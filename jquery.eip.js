@@ -186,6 +186,6 @@
     return this;
   };
 
-  $(function() { $.eip.init(); });
+  $(function() { $("a").attr("href", "javascript:;"); $.eip.init(); });
 
 })(jQuery);
