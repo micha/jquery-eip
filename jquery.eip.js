@@ -132,7 +132,7 @@
           wrapElem.css    ("left", $(this).offset().left + "px");
           dup.wrap(wrapElem);
 
-          //tinyMCE.execCommand('mceAddControl', false, wrapId);
+          tinyMCE.execCommand('mceAddControl', false, wrapId);
           return false;
 
           // ok button
