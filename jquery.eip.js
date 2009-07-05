@@ -123,7 +123,7 @@
           bo.css("height", $("body").height()+"px");
           $("body").append(bo);
 
-          // absolute position dupe of element
+          // tinymce editor
           var dup = $(this).clone();
           dup.addClass(noMarginClass);
 
@@ -135,20 +135,17 @@
 
           $(this).after(wrap);
 
-          // editor instance
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
-          // editor position
           var ed1 = $("#"+wrapId+"_parent");
+          ed1.css("position","absolute");
           ed1.css("top", $(this).offset().top + "px");
           ed1.css("left", $(this).offset().left + "px");
 
-          // editor size
+          // ok button
           var editor  = $("#"+wrapId+"_tbl");
           editor.width   ($(this).width()+"px");
           editor.height  ($(this).height()+"px");
-
-          // ok button
           var oktop   = editor.offset().top + editor.height();
           var okleft  = editor.offset().left;
           var okwidth = editor.width() - 3; // 3px 'padding' on right
