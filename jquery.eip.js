@@ -76,7 +76,7 @@
             "z-index: 4000 !important; "+
             "text-align: right; "+
           "} "+
-          "html body ."+noMarginClass+" { "+
+          "html body #"+wrapId+" ."+noMarginClass+" { "+
             "margin: 0px !important; "+
           "} "+
         "</style>"
@@ -137,13 +137,13 @@
 
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
-          //var ed1 = $("#"+wrapId+"_parent");
+          var ed1 = $("#"+wrapId+"_parent");
+          ed1.css("position","absolute");
+          ed1.css("top", $(this).offset().top + "px");
+          ed1.css("left", $(this).offset().left + "px");
 
           // ok button
           var editor  = $("#"+wrapId+"_tbl");
-          editor.parent().css("position","absolute");
-          editor.parent().css("top", $(this).offset().top + "px");
-          editor.parent().css("left", $(this).offset().left + "px");
           editor.width   ($(this).width()+"px");
           editor.height  ($(this).height()+"px");
           var oktop   = editor.offset().top + editor.height();
