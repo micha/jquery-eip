@@ -127,8 +127,9 @@
           dup.css         ("left", $(this).offset().left + "px");
           dup.css         ("margin", "0");
           $(this).after(dup);
-          dup.wrap(wrapElem);
-          tinyMCE.execCommand('mceAddControl', false, wrapId);
+          return false;
+          //dup.wrap(wrapElem);
+          //tinyMCE.execCommand('mceAddControl', false, wrapId);
 
           // ok button
           var editor  = $("#"+wrapId+"_tbl");
