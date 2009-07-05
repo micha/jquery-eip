@@ -164,7 +164,7 @@
         },
         function(event) { 
           tinyMCE.execCommand('mceRemoveControl', false, wrapId);
-          $("#"+wrapId).children().addClass("eip");
+          $("#"+wrapId).children().removeClass(noMarginClass).addClass("eip");
           $(this).replaceWith($("#"+wrapId).children().eip());
           $("#"+wrapId).remove();
           $("#"+blackoutId).remove();
