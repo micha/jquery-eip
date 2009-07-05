@@ -137,13 +137,13 @@
 
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
-          var ed1 = $("#"+wrapId+"_parent");
-          ed1.css     ("position", "absolute");
-          ed1.css     ("top", $(this).position().top + "px");
-          ed1.css     ("left", $(this).position().left + "px");
+          //var ed1 = $("#"+wrapId+"_parent");
 
           // ok button
           var editor  = $("#"+wrapId+"_tbl");
+          editor.css     ("position", "absolute");
+          editor.css     ("top", $(this).offset().top + "px");
+          editor.css     ("left", $(this).offset().left + "px");
           editor.width   ($(this).width()+"px");
           editor.height  ($(this).height()+"px");
           var oktop   = editor.offset().top + editor.height();
