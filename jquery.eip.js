@@ -46,6 +46,7 @@
             "filter: alpha(opacity = 66); "+
           "} "+
           "#"+wrapId+" { "+
+            "position: absolute !important; "+
             "padding-top: 0 !important; "+
             "padding-right: 0 !important; "+
             "padding-bottom: 0 !important; "+
@@ -127,19 +128,17 @@
           bo.css("height", $("body").height()+"px");
           $("body").append(bo);
 
-          var wrap = $("<div/>").attr("id", wrapId);
+          // tinymce editor
+          var dup = $(this).clone();
+          dup.addClass(noMarginClass);
 
-          if (this.hasClass("eip-dup")) {
-            var dup = $(this).clone();
-            dup.addClass(noMarginClass);
-            wrap.append(dup);
-            wrap.css    ("position", "absolute");
-            wrap.css    ("top", $(this).offset().top + "px");
-            wrap.css    ("left", $(this).offset().left + "px");
-            $("body").append(wrap);
-          } else {
-            $(this).wrap(wrap);
-          }
+          var wrap = $("<div/>").attr("id", wrapId);
+          wrap.css    ("position", "absolute");
+          wrap.css    ("top", $(this).offset().top + "px");
+          wrap.css    ("left", $(this).offset().left + "px");
+          wrap.append(dup);
+
+          $("body").append(wrap);
 
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
