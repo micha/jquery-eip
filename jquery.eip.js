@@ -133,11 +133,14 @@
           wrap.css    ("top", $(this).offset().top + "px");
           wrap.css    ("left", $(this).offset().left + "px");
 
-          var dup = $(this).clone();
-          dup.addClass(noMarginClass);
-          wrap.append(dup);
-
-          $("body").append(wrap);
+          if (this.hasClass("eip-dup")) {
+            var dup = $(this).clone();
+            dup.addClass(noMarginClass);
+            wrap.append(dup);
+            $("body").append(wrap);
+          } else {
+            $(this).wrap(wrap);
+          }
 
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
