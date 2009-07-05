@@ -57,7 +57,7 @@
             "margin-left: 0 !important; "+
           "} "+
           "#"+wrapId+"_"+($.browser.msie?"parent":"tbl")+" { "+
-            "position: relative !important; "+
+            "position: absolute !important; "+
             "z-index: 3000 !important; "+
           "} "+
           "#"+wrapId+"_external { "+
