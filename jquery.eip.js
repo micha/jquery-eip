@@ -141,9 +141,9 @@
 
           // ok button
           var editor  = $("#"+wrapId+"_tbl");
-          editor.css     ("position", "absolute");
-          editor.css     ("top", $(this).offset().top + "px");
-          editor.css     ("left", $(this).offset().left + "px");
+          editor.parent().css("position","absolute");
+          editor.parent().css("top", $(this).offset().top + "px");
+          editor.parent().css("left", $(this).offset().left + "px");
           editor.width   ($(this).width()+"px");
           editor.height  ($(this).height()+"px");
           var oktop   = editor.offset().top + editor.height();
