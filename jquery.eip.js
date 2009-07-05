@@ -127,9 +127,10 @@
           dup.css         ("top", $(this).offset().top + "px");
           dup.css         ("left", $(this).offset().left + "px");
           dup.css         ("margin", "0");
+          dup.attr("id", wrapId);
 
           $(this).after(dup);
-          dup.wrap(wrapElem);
+          //dup.wrap(wrapElem);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
           return false;
 
