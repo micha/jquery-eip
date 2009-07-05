@@ -138,7 +138,7 @@
           wrap.css    ("left", $(this).offset().left + "px");
           wrap.append(dup);
 
-          $(this).after(wrap);
+          $("body").append(wrap);
 
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
