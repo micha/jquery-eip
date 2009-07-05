@@ -136,6 +136,8 @@
           ed1.css     ("position", "absolute");
           ed1.css     ("top", $(this).offset().top + "px");
           ed1.css     ("left", $(this).offset().left + "px");
+          ed1.width   ($(this).width()+"px");
+          ed1.height  ($(this).height()+"px");
 
           // ok button
           var editor  = $("#"+wrapId+"_tbl");
