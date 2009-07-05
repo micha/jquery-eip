@@ -56,10 +56,13 @@
             "margin-bottom: 0 !important; "+
             "margin-left: 0 !important; "+
           "} "+
-          "#"+wrapId+"_"+($.browser.msie?"parent":"tbl")+" { "+
-            "z-index: 3000 !important; "+
-          "} "+
+          (!$.browser.msie ?
+            "#"+wrapId+"_tbl { "+
+              "z-index: 3000 !important; "+
+            "} "
+          : "")+
           "#"+wrapId+"_parent { "+
+            "z-index: 3000 !important; "+
             "position: absolute !important; "+
           "} "+
           "#"+wrapId+"_external { "+
