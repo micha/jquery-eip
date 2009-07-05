@@ -45,6 +45,7 @@
             "filter: alpha(opacity = 66); "+
           "} "+
           "#"+wrapId+" { "+
+            "position: absolute !important; "+
             "padding-top: 0 !important; "+
             "padding-right: 0 !important; "+
             "padding-bottom: 0 !important; "+
@@ -127,10 +128,9 @@
           dup.css         ("top", $(this).offset().top + "px");
           dup.css         ("left", $(this).offset().left + "px");
           dup.css         ("margin", "0");
-          dup.attr("id", wrapId);
 
           $(this).after(dup);
-          //dup.wrap(wrapElem);
+          dup.wrap(wrapElem);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
           return false;
 
