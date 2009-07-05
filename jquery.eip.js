@@ -121,10 +121,6 @@
 
           // tinymce editor
           var dup = $(this).clone();
-          dup.width       ($(this).width()+"px");
-          dup.height      ($(this).height()+"px");
-          dup.css         ("position", "relative");
-          dup.css         ("margin", "0");
 
           var wrap = $("<div/>").attr("id", wrapId);
           wrap.css    ("position", "absolute");
