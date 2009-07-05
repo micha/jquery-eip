@@ -21,16 +21,6 @@
     init : function(hcss) {
       $("head").append(  
         "<style type='text/css'> " +
-          "#"+wrapId+" { "+
-            "padding-top: 0 !important; "+
-            "padding-right: 0 !important; "+
-            "padding-bottom: 0 !important; "+
-            "padding-left: 0 !important; "+
-            "margin-top: 0 !important; "+
-            "margin-right: 0 !important; "+
-            "margin-bottom: 0 !important; "+
-            "margin-left: 0 !important; "+
-          "} "+
           "#"+topbarId+" { "+
             "position: fixed; "+
             "bottom: 0px; "+
@@ -53,6 +43,17 @@
             "background: #000; "+
             "opacity: 0.66; "+
             "filter: alpha(opacity = 66); "+
+          "} "+
+          "#"+wrapId+" { "+
+            "position: absolute; "+
+            "padding-top: 0 !important; "+
+            "padding-right: 0 !important; "+
+            "padding-bottom: 0 !important; "+
+            "padding-left: 0 !important; "+
+            "margin-top: 0 !important; "+
+            "margin-right: 0 !important; "+
+            "margin-bottom: 0 !important; "+
+            "margin-left: 0 !important; "+
           "} "+
           "#"+wrapId+"_"+($.browser.msie?"parent":"tbl")+" { "+
             "position: relative !important; "+
