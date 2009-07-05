@@ -130,7 +130,7 @@
           dup.css         ("margin", "0");
 
           $(this).after(dup);
-          dup.wrap(wrapElem);
+          //dup.wrap(wrapElem);
           //tinyMCE.execCommand('mceAddControl', false, wrapId);
           return false;
 
