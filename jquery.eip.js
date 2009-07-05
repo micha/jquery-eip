@@ -141,6 +141,7 @@
           ed1.css     ("position", "absolute");
           ed1.css     ("top", $(this).offset().top + "px");
           ed1.css     ("left", $(this).offset().left + "px");
+          ed1.width   (($(this).width() + 20) + "px");
 
           return false;
 
