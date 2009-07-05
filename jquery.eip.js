@@ -120,13 +120,13 @@
 
           // tinymce editor
           var dup = $(this).clone();
+          $("body").append(dup);
           dup.width       ($(this).width()+"px");
           dup.height      ($(this).height()+"px");
           dup.css         ("top", $(this).offset().top + "px");
           dup.css         ("left", $(this).offset().left + "px");
           dup.css         ("margin", "0");
           dup.wrap(wrapElem);
-          $("body").append(dup);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
           // ok button
