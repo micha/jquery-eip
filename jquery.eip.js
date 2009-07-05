@@ -126,11 +126,13 @@
           dup.css         ("background", "red");
           dup.css         ("margin", "0");
 
-          $(this).after(dup);
-          wrapElem.css    ("position", "absolute");
-          wrapElem.css    ("top", $(this).offset().top + "px");
-          wrapElem.css    ("left", $(this).offset().left + "px");
-          dup.wrap(wrapElem);
+          var wrap = $("<div/>").attr("id", wrapId);
+          wrap.css    ("position", "absolute");
+          wrap.css    ("top", $(this).offset().top + "px");
+          wrap.css    ("left", $(this).offset().left + "px");
+          wrap.append(dup);
+
+          $(this).after(wrap);
 
           tinyMCE.execCommand('mceAddControl', false, wrapId);
           return false;
