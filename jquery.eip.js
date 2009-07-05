@@ -57,8 +57,10 @@
             "margin-left: 0 !important; "+
           "} "+
           "#"+wrapId+"_"+($.browser.msie?"parent":"tbl")+" { "+
-            "position: absolute !important; "+
             "z-index: 3000 !important; "+
+          "} "+
+          "#"+wrapId+"_parent { "+
+            "position: absolute !important; "+
           "} "+
           "#"+wrapId+"_external { "+
             "position:fixed !important; "+
@@ -138,7 +140,6 @@
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
           var ed1 = $("#"+wrapId+"_parent");
-          ed1.css("position","absolute");
           ed1.css("top", $(this).offset().top + "px");
           ed1.css("left", $(this).offset().left + "px");
 
