@@ -46,7 +46,6 @@
             "filter: alpha(opacity = 66); "+
           "} "+
           "#"+wrapId+" { "+
-            "position: absolute !important; "+
             "padding-top: 0 !important; "+
             "padding-right: 0 !important; "+
             "padding-bottom: 0 !important; "+
