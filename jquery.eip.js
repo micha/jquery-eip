@@ -136,6 +136,12 @@
           $(this).after(wrap);
 
           tinyMCE.execCommand('mceAddControl', false, wrapId);
+
+          var ed1 = $("#"+wrapId+"_parent");
+          ed1.css("position", "absolute");
+          ed1.css("top", wrap.offset().top+"px");
+          ed1.css("left", wrap.offset().left+"px");
+
           return false;
 
           // ok button
