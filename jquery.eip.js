@@ -130,8 +130,8 @@
 
           $(this).after(dup);
           dup.wrap(wrapElem);
+          tinyMCE.execCommand('mceAddControl', false, wrapId);
           return false;
-          //tinyMCE.execCommand('mceAddControl', false, wrapId);
 
           // ok button
           var editor  = $("#"+wrapId+"_tbl");
