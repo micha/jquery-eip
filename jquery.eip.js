@@ -122,6 +122,8 @@
           $(this).wrap(wrapElem);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
 
+          $("#"+wrapId+"_parent > div").eq(0).height("0px");
+
           // ok button
           var editor  = $("#"+wrapId+"_tbl");
           var oktop   = editor.offset().top + editor.height();
