@@ -79,13 +79,13 @@
 
       if (hcss) $.hoverlay.css(hcss);
 
+      /*
       $("a").unbind("mousedown")
         .unbind("mouseup")
         .unbind("click")
         .click(function() { return false; })
         .dblclick(function() { return false; });
 
-      /*
       var tbar, b1, b2;
       tbar = $("<div/>").attr("id", topbarId);
       tbar.append("<div style='width:20px;float:right'>&nbsp;</div>");
