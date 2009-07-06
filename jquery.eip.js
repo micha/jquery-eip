@@ -105,6 +105,7 @@
   };
 
   $.fn.eip = function() {
+    console.log("got here");
     if (!$.eip.enabled())
       return this;
     this.each(function() {
