@@ -145,7 +145,8 @@
           );
           $("body").append(ok);
           $(document).one("keyup", function(event) {
-            alert(event.which + "...");
+            if (event.which == 27)
+              $(document).trigger("hoverlay-term", event);  
           });
         },
         function(event) { 
