@@ -7,7 +7,6 @@
   var helpId            = "eip-help";
 
   var buttonClass       = "eip-button";
-  var noMarginClass     = "eip-no-margin";
 
   var wrapElem          = $("<div/>").attr("id", wrapId);
 
@@ -22,6 +21,16 @@
     init : function(hcss) {
       $("head").append(  
         "<style type='text/css'> " +
+          "#"+wrapId+" { "+
+            "padding-top: 0 !important; "+
+            "padding-right: 0 !important; "+
+            "padding-bottom: 0 !important; "+
+            "padding-left: 0 !important; "+
+            "margin-top: 0 !important; "+
+            "margin-right: 0 !important; "+
+            "margin-bottom: 0 !important; "+
+            "margin-left: 0 !important; "+
+          "} "+
           "#"+topbarId+" { "+
             "position: fixed; "+
             "bottom: 0px; "+
@@ -45,25 +54,9 @@
             "opacity: 0.66; "+
             "filter: alpha(opacity = 66); "+
           "} "+
-          "#"+wrapId+" { "+
-            "position: absolute !important; "+
-            "padding-top: 0 !important; "+
-            "padding-right: 0 !important; "+
-            "padding-bottom: 0 !important; "+
-            "padding-left: 0 !important; "+
-            "margin-top: 0 !important; "+
-            "margin-right: 0 !important; "+
-            "margin-bottom: 0 !important; "+
-            "margin-left: 0 !important; "+
-          "} "+
-          (!$.browser.msie ?
-            "#"+wrapId+"_tbl { "+
-              "z-index: 3000 !important; "+
-            "} "
-          : "")+
-          "#"+wrapId+"_parent { "+
+          "#"+wrapId+"_"+($.browser.msie?"parent":"tbl")+" { "+
+            "position: relative !important; "+
             "z-index: 3000 !important; "+
-            "position: absolute !important; "+
           "} "+
           "#"+wrapId+"_external { "+
             "position:fixed !important; "+
@@ -80,9 +73,6 @@
             "position: absolute !important; "+
             "z-index: 4000 !important; "+
             "text-align: right; "+
-          "} "+
-          "html body #"+wrapId+" ."+noMarginClass+" { "+
-            "margin: 0px !important; "+
           "} "+
         "</style>"
       );
@@ -129,34 +119,11 @@
           $("body").append(bo);
 
           // tinymce editor
-          var dup = $(this).clone();
-          dup.addClass(noMarginClass);
-
-          var wrap = $("<div/>").attr("id", wrapId);
-          wrap.css    ("position", "absolute");
-          wrap.css    ("top", $(this).offset().top + "px");
-          wrap.css    ("left", $(this).offset().left + "px");
-          wrap.append(dup);
-
-          $("body").append(wrap);
-
+          $(this).wrap(wrapElem);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
-
-          var ed1 = $("#"+wrapId+"_parent");
-          ed1.css("top", $(this).offset().top + "px");
-          ed1.css("left", $(this).offset().left + "px");
-          ed1.width   ($(this).width()+"px");
-          ed1.height  ($(this).height()+"px");
 
           // ok button
           var editor  = $("#"+wrapId+"_tbl");
-          editor.width   ($(this).width()+"px");
-          editor.height  ($(this).height()+"px");
-
-          var td = $("td.mceIframeContainer");
-          var fr = $("#eip-mce-wrapper_ifr");
-          fr.height(td.height()+"px");
-
           var oktop   = editor.offset().top + editor.height();
           var okleft  = editor.offset().left;
           var okwidth = editor.width() - 3; // 3px 'padding' on right
@@ -175,9 +142,8 @@
         },
         function(event) { 
           tinyMCE.execCommand('mceRemoveControl', false, wrapId);
-          $("#"+wrapId).children().removeClass(noMarginClass).addClass("eip");
-          $(this).replaceWith($("#"+wrapId).children().eip());
-          $("#"+wrapId).remove();
+          $("#"+wrapId).children().addClass("eip");
+          $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
           $("#"+blackoutId).remove();
           $("#"+blackoutCloseId).remove();
         }
@@ -186,6 +152,6 @@
     return this;
   };
 
-  $(function() { $("a").attr("href", "javascript:;"); $.eip.init(); });
+  $(function() { $.eip.init(); });
 
 })(jQuery);
