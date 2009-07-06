@@ -144,6 +144,9 @@
               })
           );
           $("body").append(ok);
+          $(document).one("keyup", function(event) {
+            alert(event.which + "...");
+          });
         },
         function(event) { 
           tinyMCE.execCommand('mceRemoveControl', false, wrapId);
