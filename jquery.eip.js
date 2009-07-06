@@ -58,11 +58,6 @@
             "position: relative !important; "+
             "z-index: 3000 !important; "+
           "} "+
-          "#"+wrapId+"_parent > div { "+
-            "position: fixed !important; "+
-            "top: 0px; !important; "+
-            "left: 0px !important; "+
-          "} "+
           "#"+wrapId+"_external { "+
             "position:fixed !important; "+
             "top:0px !important; "+
@@ -126,6 +121,11 @@
           // tinymce editor
           $(this).wrap(wrapElem);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
+
+          $("#"+wrapId+"_parent > div").eq(0)
+            .css("position", "fixed")
+            .css("top", "0px")
+            .css("left", "0px")
 
           // ok button
           var editor  = $("#"+wrapId+"_tbl");
