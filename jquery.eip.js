@@ -144,10 +144,6 @@
               })
           );
           $("body").append(ok);
-          $(document).one("keyup", function(event) {
-            if (event.which == 27)
-              $(document).trigger("hoverlay-term", event);  
-          });
         },
         function(event) { 
           tinyMCE.execCommand('mceRemoveControl', false, wrapId);
