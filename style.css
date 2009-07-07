@@ -109,6 +109,11 @@ h4 {
  --- HEADINGS --- */
 /* --- MINE --- */
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #content {
   width: 40em;
   margin: 5em auto;
