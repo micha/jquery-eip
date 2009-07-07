@@ -18,9 +18,6 @@
         ? (enableVal = $.hoverlay.enabled(val)) 
         : enableVal;
     },
-    off : function(event) {
-      $(document).trigger("hoverlay-term", event);  
-    },
     init : function(hcss) {
       $("head").append(  
         "<style type='text/css'> " +
@@ -143,7 +140,7 @@
             $("<input type='button'/>")
               .val("done")
               .click(function(event) {
-                $.eip.off(event);
+                $(document).trigger("hoverlay-term", event);  
               })
           );
           $("body").append(ok);
