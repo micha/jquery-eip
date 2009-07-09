@@ -54,10 +54,14 @@
             "opacity: 0.66; "+
             "filter: alpha(opacity = 66); "+
           "} "+
-          "#"+wrapId+"_"+($.browser.msie?"parent":"tbl")+" { "+
+          "#"+wrapId+"_tbl { "+
             "margin: 0px !important; "+
-            "position: relative !important; "+
-            "z-index: 3000 !important; "+
+            (!$.browser.msie ? "position: relative !important; " : "")+
+            (!$.browser.msie ? "z-index: 3000 !important; " : "")+
+          "} "+
+          "#"+wrapId+"_parent { "+
+            ($.browser.msie ? "position: relative !important; " : "")+
+            ($.browser.msie ? "z-index: 3000 !important; " : "")+
           "} "+
           "#"+wrapId+"_external { "+
             "position:fixed !important; "+
