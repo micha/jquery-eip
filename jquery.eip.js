@@ -62,6 +62,9 @@
           "#"+wrapId+"_tblext { "+
             "margin: 0px !important; "+
           "} "+
+          "#"+wrapId+"_toolbar1 { "+
+            "margin: 0px !important; "+
+          "} "+
           "#"+wrapId+"_parent { "+
             ($.browser.msie ? "position: relative !important; " : "")+
             ($.browser.msie ? "z-index: 3000 !important; " : "")+
