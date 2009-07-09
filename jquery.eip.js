@@ -134,6 +134,10 @@
       a.hoverlay(
         { border : "1px solid black" },
         function(event) { 
+          // disable editmode submit button if necessary
+          if ($.editmode)
+            $.editmode.enabled(false);
+
           // blackout overlay
           var bo = $("<div id='"+blackoutId+"'/>");
           bo.css("width", $("body").width()+"px");
@@ -173,6 +177,10 @@
           $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
           $("#"+blackoutId).remove();
           $("#"+blackoutCloseId).remove();
+
+          // re-enable editmode submit button if necessary
+          if ($.editmode)
+            $.editmode.enabled(true);
         }
       );
     });
