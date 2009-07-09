@@ -135,8 +135,7 @@
         { border : "1px solid black" },
         function(event) { 
           // disable editmode submit button if necessary
-          if ($.editmode)
-            $.editmode.enabled(false);
+          try { $.editmode.set.eip(); } catch (e) {}
 
           // blackout overlay
           var bo = $("<div id='"+blackoutId+"'/>");
@@ -179,8 +178,7 @@
           $("#"+blackoutCloseId).remove();
 
           // re-enable editmode submit button if necessary
-          if ($.editmode)
-            $.editmode.enabled(true);
+          try { $.editmode.set.edit(); } catch (e) {}
         }
       );
     });
