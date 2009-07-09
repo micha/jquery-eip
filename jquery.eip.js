@@ -55,6 +55,7 @@
             "filter: alpha(opacity = 66); "+
           "} "+
           "#"+wrapId+"_"+($.browser.msie?"parent":"tbl")+" { "+
+            "margin: 0px !important; "+
             "position: relative !important; "+
             "z-index: 3000 !important; "+
           "} "+
