@@ -39,7 +39,7 @@
             "background: red; "+
             "color: white; "+
             "padding: 4px 20px; "+
-            "z-index: 99999 !important; "+
+            "z-index: 5000 !important; "+
           "} "+
           "#"+topbarId+" input { "+
             "float: right; "+
@@ -77,7 +77,7 @@
             "margin:0px !important; "+
             "border:1px solid #444 !important; "+
             "display:block !important; "+
-            "z-index: 99999 !important; "+
+            "z-index: 5000 !important; "+
           "} "+
           "#"+blackoutCloseId+" { "+
             "padding: 5px; "+
