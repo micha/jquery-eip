@@ -128,8 +128,8 @@
 
           // blackout overlay
           var bo = $("<div id='"+blackoutId+"'/>");
-          bo.css("width", $("body").width()+"px");
-          bo.css("height", $("body").height()+"px");
+          bo.css("width", $(window).width()+"px");
+          bo.css("height", $(window).height()+"px");
           $("body").append(bo);
 
           // tinymce editor
