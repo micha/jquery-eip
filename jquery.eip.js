@@ -113,7 +113,9 @@
             tinyMCE.execCommand('mceRemoveControl', false, wrapId);
             $("#"+wrapId).children().addClass("eip");
             $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
+            return false;
           });
+          return false;
         }
       );
 
