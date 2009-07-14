@@ -37,15 +37,19 @@
       $(this).hover(
         function(event) {
           if (event.target === a)
-            alert("YES");
+            alert("in:YES");
           else
-            alert("NO");
+            alert("in:NO");
           var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
           $(this).data("oldbg", $(this).css("background-image"));
           $(this).css("background-image", "url("+bgurl+")");
           return false;
         },
         function(event) {
+          if (event.target === a)
+            alert("out:YES");
+          else
+            alert("out:NO");
           $(this).css("background-image", $(this).data("oldbg"));
           $(this).data("oldbg", null);
           return false;
