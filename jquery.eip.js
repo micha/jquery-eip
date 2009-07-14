@@ -3,6 +3,24 @@
   var wrapId            = "eip-mce-wrapper";
   var wrapElem          = $("<div/>").attr("id", wrapId);
   var uuid              = 0;
+  var enabledVal        = true;
+
+  $.eip = {
+    enabled: function(val) {
+      return !arguments.length ? enabledVal : (enabledVal = val);
+    }
+  };
+
+  function hover_in(event) {
+    var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
+    $(this).data("oldbg", $(this).css("background-image"));
+    $(this).css("background-image", "url("+bgurl+")");
+  }
+
+  function hover_out(event) {
+    $(this).css("background-image", $(this).data("oldbg"));
+    $(this).data("oldbg", null);
+  }
 
   $.fn.eip = function() {
     this.each(function() {
@@ -10,14 +28,11 @@
       $(a).data("eip-uuid", ++uuid);
       $(this).hover(
         function(event) {
-          var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
-          $(this).data("oldbg", $(this).css("background-image"));
-          $(this).css("background-image", "url("+bgurl+")");
+          $(document).trigger("eip-in", event);
           return false;
         },
         function(event) {
-          $(this).css("background-image", $(this).data("oldbg"));
-          $(this).data("oldbg", null);
+          $(document).trigger("eip-out", event);
           return false;
         }
       ).click(function(event) {
@@ -38,6 +53,12 @@
     });
     return this;
   };
+
+  $(document).bind("eip-in", function(event) {
+    hover_in(event.data);
+  }).bind("eip-out", function(event) {
+    hover_out(event.data);
+  });
 
 })(jQuery);
 
