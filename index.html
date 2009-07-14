@@ -9,7 +9,7 @@
     <div id="loading">
       <h2><span class="red">Loading...</span></h2>
     </div>
-    <div id="enable_button">
+    <div id="enable_button" style="display:none">
       <input type="button" name="enabled" value="disable edit in place"/>
     </div>
     <div id='content'>
@@ -79,6 +79,7 @@
       $(function() {
         $(".eip").eip();
         $("#loading").remove();
+        $("#enable_button").show();
         $("input[name='enabled']").click(function() {
           $.eip.enabled(! $.eip.enabled());
           $(this).val(
