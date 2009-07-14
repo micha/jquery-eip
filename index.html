@@ -14,6 +14,7 @@
         <h1 class="eip">Edit-in-place jQuery Demo</h1>
         <h3 class="eip">Double-click on things, see what happens.</h3>
       </div>
+      <input type="button" name="enabled"/>
       <div id="left">
         <h2 class="eip">Foo</h2> <div class="eip">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
@@ -76,6 +77,10 @@
       $(function() {
         $(".eip").eip();
         $("#loading").remove();
+        $("input[name='enabled']").click(function() {
+          $.eip.enabled(! $.eip.enabled());
+          $(this).val($.eip.enabled() ? "disable" : "enable");
+        }).val($.eip.enabled() ? "disable" : "enable");
       });
     </script>
   </body>
