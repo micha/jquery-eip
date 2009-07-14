@@ -33,6 +33,8 @@
   }
 
   function remove_mce(event) {
+    if (! $("#"+wrapId).size())
+      return;
     tinyMCE.execCommand('mceRemoveControl', false, wrapId);
     $("#"+wrapId).children().addClass("eip");
     $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
@@ -69,6 +71,7 @@
           return false;
         }
       ).click(function(event) {
+        remove_mce(event);
         add_mce.call(this, event);
         $("body").one("click", body_click);
         return false;
