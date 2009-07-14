@@ -89,21 +89,23 @@
     }
   };
 
+  function hover_in(event) {
+    var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
+    $(this).data("oldbg", $(this).css("background-image"));
+    $(this).css("background-image", "url("+bgurl+")");
+  }
+
+  function hover_out(event) {
+    $(this).css("background-image", $(this).data("oldbg"));
+    $(this).data("oldbg", null);
+  }
+
   $.fn.eip = function() {
     this.each(function() {
       var a = $(this);
-      $(this).hover(
-        function() {
-          var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
-          $(this).data("oldbg", $(this).css("background-image"));
-          $(this).css("background-image", "url("+bgurl+")");
-        },
-        function() {
-          $(this).css("background-image", $(this).data("oldbg"));
-          $(this).data("oldbg", null);
-        }
-      ).click(
-        function() {
+      $(this).hover(hover_in, hover_out).click(
+        function(event) {
+          hover_out(event);
           // tinymce editor
           alert("in!");
           $(this).wrap(wrapElem);
