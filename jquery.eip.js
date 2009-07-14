@@ -49,8 +49,6 @@
     return this;
   };
 
-  $(function() { $.eip.init(); });
-
 })(jQuery);
 
   /*
