@@ -3,7 +3,7 @@
   var wrapId            = "eip-mce-wrapper";
   var wrapElem          = $("<div/>").attr("id", wrapId);
   var uuid              = 0;
-  var enabledVal        = true;
+  var enabledVal        = false;
 
   function noclick(event) {
     return false;
@@ -112,6 +112,7 @@
     $("#menu_"+wrapId+"_"+wrapId+"_formatselect_menu_co")
       .live("mouseover", function(event) { $.eip.enabled(false); })
       .live("mouseout", function(event) { $.eip.enabled(true); });
+    $.eip.enabled(true);
   });
 
 })(jQuery);
