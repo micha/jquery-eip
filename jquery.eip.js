@@ -11,9 +11,9 @@
       $(this).hover(
         function(event) {
           if (event.target === a)
-            alert("in:YES ("+$(a).data("uuid")+")");
+            alert("in:YES ("+$(a).data("eip-uuid")+")");
           else
-            alert("in:NO ("+$(a).data("uuid")+")");
+            alert("in:NO ("+$(a).data("eip-uuid")+")");
           var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
           $(this).data("oldbg", $(this).css("background-image"));
           $(this).css("background-image", "url("+bgurl+")");
@@ -21,9 +21,9 @@
         },
         function(event) {
           if (event.target === a)
-            alert("out:YES ("+$(a).data("uuid")+")");
+            alert("out:YES ("+$(a).data("eip-uuid")+")");
           else
-            alert("out:NO ("+$(a).data("uuid")+")");
+            alert("out:NO ("+$(a).data("eip-uuid")+")");
           $(this).css("background-image", $(this).data("oldbg"));
           $(this).data("oldbg", null);
           return false;
