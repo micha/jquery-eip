@@ -93,11 +93,13 @@
     var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
     $(this).data("oldbg", $(this).css("background-image"));
     $(this).css("background-image", "url("+bgurl+")");
+    return false;
   }
 
   function hover_out(event) {
     $(this).css("background-image", $(this).data("oldbg"));
     $(this).data("oldbg", null);
+    return false;
   }
 
   $.fn.eip = function() {
