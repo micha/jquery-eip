@@ -69,6 +69,26 @@
     return this;
   };
 
+  $(function() {
+    $("head").append(  
+      "<style type='text/css'> " +
+        "#"+wrapId+"_toolbar1 { "+
+          "margin: 0px !important; "+
+        "} "+
+        "#"+wrapId+"_external { "+
+          "position:fixed !important; "+
+          "top:0px !important; "+
+          "left: 0px !important; "+
+          "padding:0px !important; "+
+          "margin:0px !important; "+
+          "border:1px solid #444 !important; "+
+          "display:block !important; "+
+          "z-index: 5000 !important; "+
+        "} "+
+      "</style>"
+    );
+  });
+
 })(jQuery);
 
   /*
