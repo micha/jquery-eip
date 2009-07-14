@@ -27,12 +27,12 @@
 
       var a = this;
 
-      $(document).bind("eip-in", function(event) {
-        if (event.data === this)
-          hover_in.call(this, event);
-      }).bind("eip-out", function(event) {
-        if (event.data === this)
-          hover_out.call(this, event);
+      $(document).bind("eip-in", this, function(event, target) {
+        if (target === event.data)
+          hover_in.call(target, event);
+      }).bind("eip-out", this, function(event, target) {
+        if (target === event.data)
+          hover_out.call(target, event);
       });
 
       $(this).hover(
