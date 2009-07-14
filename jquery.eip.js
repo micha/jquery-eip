@@ -24,8 +24,13 @@
 
   $.fn.eip = function() {
     this.each(function() {
-      var a = this;
-      $(a).data("eip-uuid", ++uuid);
+
+      $(document).bind("eip-in", function(event) {
+        hover_in.call(this, event.data);
+      }).bind("eip-out", function(event) {
+        hover_out.call(this, event.data);
+      });
+
       $(this).hover(
         function(event) {
           $(document).trigger("eip-in", event);
@@ -36,9 +41,9 @@
           return false;
         }
       ).click(function(event) {
+        $(document).trigger("eip-out", event);
+
         // tinymce editor
-        $(this).css("background-image", $(this).data("oldbg"));
-        $(this).data("oldbg", null);
         $(this).wrap(wrapElem);
         tinyMCE.execCommand('mceAddControl', false, wrapId);
         $("body").one("click", function(event) {
@@ -55,11 +60,6 @@
   };
 
   $(function() {
-    $(document).bind("eip-in", function(event) {
-      hover_in(event.data);
-    }).bind("eip-out", function(event) {
-      hover_out(event.data);
-    });
   });
 
 })(jQuery);
