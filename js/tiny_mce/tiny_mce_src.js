@@ -1,7 +1,7 @@
 var tinymce = {
-	majorVersion : '3',
-	minorVersion : '2.5',
-	releaseDate : '2009-06-29',
+	majorVersion : '@@tinymce_major_version@@',
+	minorVersion : '@@tinymce_minor_version@@',
+	releaseDate : '@@tinymce_release_date@@',
 
 	_init : function() {
 		var t = this, d = document, w = window, na = navigator, ua = na.userAgent, i, nl, n, base, p, v;
