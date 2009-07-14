@@ -29,8 +29,6 @@
           return false;
         }
       ).click(function(event) {
-        hover_out(event);
-        lock = true;
         // tinymce editor
         alert("in!");
         $(this).wrap(wrapElem);
