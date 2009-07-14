@@ -124,6 +124,12 @@ h4 {
   text-align: center;
 }
 
+#loading, #enable_button {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
 #loading h2 .red {
   padding: 2px;
   background: red;
