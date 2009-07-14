@@ -105,9 +105,11 @@
       ).click(
         function() {
           // tinymce editor
+          alert("in!");
           $(this).wrap(wrapElem);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
           $("body").one("click", function(event) {
+            alert("out!");
             tinyMCE.execCommand('mceRemoveControl', false, wrapId);
             $("#"+wrapId).children().addClass("eip");
             $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
