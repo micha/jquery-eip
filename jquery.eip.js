@@ -25,23 +25,27 @@
   $.fn.eip = function() {
     this.each(function() {
 
+      var a = this;
+
       $(document).bind("eip-in", function(event) {
-        hover_in.call(this, event.data);
+        if (event.data === this)
+          hover_in.call(this, event);
       }).bind("eip-out", function(event) {
-        hover_out.call(this, event.data);
+        if (event.data === this)
+          hover_out.call(this, event);
       });
 
       $(this).hover(
         function(event) {
-          $(document).trigger("eip-in", event);
+          $(document).trigger("eip-in", a);
           return false;
         },
         function(event) {
-          $(document).trigger("eip-out", event);
+          $(document).trigger("eip-out", a);
           return false;
         }
       ).click(function(event) {
-        $(document).trigger("eip-out", event);
+        $(document).trigger("eip-out", a);
 
         $(this).wrap(wrapElem);
 
