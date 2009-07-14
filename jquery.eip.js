@@ -31,6 +31,8 @@
       ).click(function(event) {
         // tinymce editor
         alert("in!");
+        $(this).css("background-image", $(this).data("oldbg"));
+        $(this).data("oldbg", null);
         $(this).wrap(wrapElem);
         tinyMCE.execCommand('mceAddControl', false, wrapId);
         $("body").one("click", function(event) {
