@@ -54,10 +54,12 @@
     return this;
   };
 
-  $(document).bind("eip-in", function(event) {
-    hover_in(event.data);
-  }).bind("eip-out", function(event) {
-    hover_out(event.data);
+  $(function() {
+    $(document).bind("eip-in", function(event) {
+      hover_in(event.data);
+    }).bind("eip-out", function(event) {
+      hover_out(event.data);
+    });
   });
 
 })(jQuery);
