@@ -22,6 +22,15 @@
     $(this).data("oldbg", null);
   }
 
+  function add_mce(event) {
+    $(document).trigger("eip-out", a);
+    $(this).wrap(wrapElem);
+    tinyMCE.execCommand('mceAddControl', false, wrapId);
+  }
+
+  function remove_mce(event) {
+  }
+
   $.fn.eip = function() {
     this.each(function() {
 
@@ -45,11 +54,7 @@
           return false;
         }
       ).click(function(event) {
-        $(document).trigger("eip-out", a);
-
-        $(this).wrap(wrapElem);
-
-        tinyMCE.execCommand('mceAddControl', false, wrapId);
+        add_mce.call(this, event);
         $("body").one("click", function(event) {
           tinyMCE.execCommand('mceRemoveControl', false, wrapId);
           $("#"+wrapId).children().addClass("eip");
@@ -63,9 +68,6 @@
     });
     return this;
   };
-
-  $(function() {
-  });
 
 })(jQuery);
 
