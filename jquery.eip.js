@@ -1,45 +1,19 @@
 (function($) {
 
   var wrapId            = "eip-mce-wrapper";
-
   var wrapElem          = $("<div/>").attr("id", wrapId);
-
-  var enableVal         = true;
-
-  $.eip = {
-    init : function(hcss) {
-      $(".eip").eip();
-    }
-  };
-
-  var lock = false;
-
-  function hover_in(event) {
-    var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
-    $(this).data("oldbg", $(this).css("background-image"));
-    $(this).css("background-image", "url("+bgurl+")");
-    return false;
-  }
-
-  function hover_out(event) {
-    alert("hover out");
-    if (!lock) {
-      alert("hover out (no lock)");
-      $(this).css("background-image", $(this).data("oldbg"));
-      $(this).data("oldbg", null);
-    }
-    return false;
-  }
+  var uuid              = 0;
 
   $.fn.eip = function() {
     this.each(function() {
       var a = this;
+      $(a).data("eip-uuid", ++uuid);
       $(this).hover(
         function(event) {
           if (event.target === a)
-            alert("in:YES");
+            alert("in:YES ("+$(a).data("uuid")+")");
           else
-            alert("in:NO");
+            alert("in:NO ("+$(a).data("uuid")+")");
           var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
           $(this).data("oldbg", $(this).css("background-image"));
           $(this).css("background-image", "url("+bgurl+")");
@@ -47,9 +21,9 @@
         },
         function(event) {
           if (event.target === a)
-            alert("out:YES");
+            alert("out:YES ("+$(a).data("uuid")+")");
           else
-            alert("out:NO");
+            alert("out:NO ("+$(a).data("uuid")+")");
           $(this).css("background-image", $(this).data("oldbg"));
           $(this).data("oldbg", null);
           return false;
