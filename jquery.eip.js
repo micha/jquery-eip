@@ -12,6 +12,7 @@
   };
 
   function hover_in(event) {
+    if (!$.eip.enabled()) return;
     var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
     $(this).data("oldbg", $(this).css("background-image"));
     $(this).css("background-image", "url("+bgurl+")");
@@ -23,6 +24,7 @@
   }
 
   function add_mce(event) {
+    if (!$.eip.enabled()) return;
     $(document).trigger("eip-out", this);
     $(this).wrap(wrapElem);
     tinyMCE.execCommand('mceAddControl', false, wrapId);
