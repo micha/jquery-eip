@@ -28,9 +28,11 @@
     tinyMCE.execCommand('mceAddControl', false, wrapId);
     $("#"+wrapId+"_external").hover(
       function(event) {
+        alert("in");
         $.eip.enabled(false);
       },
       function(event) {
+        alert("out");
         $.eip.enabled(true);
       }
     );
