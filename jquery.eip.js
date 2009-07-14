@@ -107,6 +107,11 @@
           // tinymce editor
           $(this).wrap(wrapElem);
           tinyMCE.execCommand('mceAddControl', false, wrapId);
+          $("body").one("click", function(event) {
+            tinyMCE.execCommand('mceRemoveControl', false, wrapId);
+            $("#"+wrapId).children().addClass("eip");
+            $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
+          });
         }
       );
 
