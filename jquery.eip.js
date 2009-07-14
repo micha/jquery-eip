@@ -27,14 +27,8 @@
     $(this).wrap(wrapElem);
     tinyMCE.execCommand('mceAddControl', false, wrapId);
     $("#"+wrapId+"_external").hover(
-      function(event) {
-        alert("in");
-        $.eip.enabled(false);
-      },
-      function(event) {
-        alert("out");
-        $.eip.enabled(true);
-      }
+      function(event) { $.eip.enabled(false); },
+      function(event) { $.eip.enabled(true); }
     );
   }
 
@@ -42,6 +36,14 @@
     tinyMCE.execCommand('mceRemoveControl', false, wrapId);
     $("#"+wrapId).children().addClass("eip");
     $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
+  }
+
+  function body_click(event) {
+    if ($.eip.enabled())
+      remove_mce(event);
+    else
+      $("body").one("click", body_click);
+    return false;
   }
 
   $.fn.eip = function() {
@@ -68,10 +70,7 @@
         }
       ).click(function(event) {
         add_mce.call(this, event);
-        $("body").one("click", function(event) {
-          remove_mce(event);
-          return false;
-        });
+        $("body").one("click", body_click);
         return false;
       });
 
