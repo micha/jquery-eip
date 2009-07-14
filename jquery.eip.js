@@ -10,33 +10,23 @@
       $(a).data("eip-uuid", ++uuid);
       $(this).hover(
         function(event) {
-          if (event.target === a)
-            alert("in:YES ("+$(a).data("eip-uuid")+")");
-          else
-            alert("in:NO ("+$(a).data("eip-uuid")+")");
           var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
           $(this).data("oldbg", $(this).css("background-image"));
           $(this).css("background-image", "url("+bgurl+")");
           return false;
         },
         function(event) {
-          if (event.target === a)
-            alert("out:YES ("+$(a).data("eip-uuid")+")");
-          else
-            alert("out:NO ("+$(a).data("eip-uuid")+")");
           $(this).css("background-image", $(this).data("oldbg"));
           $(this).data("oldbg", null);
           return false;
         }
       ).click(function(event) {
         // tinymce editor
-        alert("in!");
         $(this).css("background-image", $(this).data("oldbg"));
         $(this).data("oldbg", null);
         $(this).wrap(wrapElem);
         tinyMCE.execCommand('mceAddControl', false, wrapId);
         $("body").one("click", function(event) {
-          alert("out!");
           tinyMCE.execCommand('mceRemoveControl', false, wrapId);
           $("#"+wrapId).children().addClass("eip");
           $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
