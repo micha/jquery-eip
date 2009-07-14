@@ -23,7 +23,7 @@
   }
 
   function add_mce(event) {
-    $(document).trigger("eip-out", a);
+    $(document).trigger("eip-out", this);
     $(this).wrap(wrapElem);
     tinyMCE.execCommand('mceAddControl', false, wrapId);
   }
