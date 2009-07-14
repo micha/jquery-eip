@@ -92,8 +92,10 @@
   var lock = false;
 
   function hover_in(event) {
+    alert("hover in");
     var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
     if (!lock) {
+      alert("hover in (no lock)");
       $(this).data("oldbg", $(this).css("background-image"));
       $(this).css("background-image", "url("+bgurl+")");
     }
@@ -101,7 +103,9 @@
   }
 
   function hover_out(event) {
+    alert("hover out");
     if (!lock) {
+      alert("hover out (no lock)");
       $(this).css("background-image", $(this).data("oldbg"));
       $(this).data("oldbg", null);
     }
@@ -111,24 +115,22 @@
   $.fn.eip = function() {
     this.each(function() {
       var a = $(this);
-      $(this).hover(hover_in, hover_out).click(
-        function(event) {
-          hover_out(event);
-          lock = true;
-          // tinymce editor
-          alert("in!");
-          $(this).wrap(wrapElem);
-          tinyMCE.execCommand('mceAddControl', false, wrapId);
-          $("body").one("click", function(event) {
-            alert("out!");
-            tinyMCE.execCommand('mceRemoveControl', false, wrapId);
-            $("#"+wrapId).children().addClass("eip");
-            $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
-            return false;
-          });
+      $(this).hover(hover_in, hover_out).click(function(event) {
+        hover_out(event);
+        lock = true;
+        // tinymce editor
+        alert("in!");
+        $(this).wrap(wrapElem);
+        tinyMCE.execCommand('mceAddControl', false, wrapId);
+        $("body").one("click", function(event) {
+          alert("out!");
+          tinyMCE.execCommand('mceRemoveControl', false, wrapId);
+          $("#"+wrapId).children().addClass("eip");
+          $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
           return false;
-        }
-      );
+        });
+        return false;
+      });
 
     });
     return this;
