@@ -129,3 +129,9 @@ h4 {
   background: red;
   color: white;
 }
+
+#enable_button {
+  padding: 2px;
+  background: red;
+  color: white;
+}
