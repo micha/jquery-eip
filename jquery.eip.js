@@ -43,8 +43,8 @@
       ).click(function(event) {
         $(document).trigger("eip-out", event);
 
-        // tinymce editor
         $(this).wrap(wrapElem);
+
         tinyMCE.execCommand('mceAddControl', false, wrapId);
         $("body").one("click", function(event) {
           tinyMCE.execCommand('mceRemoveControl', false, wrapId);
@@ -52,6 +52,7 @@
           $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
           return false;
         });
+
         return false;
       });
 
