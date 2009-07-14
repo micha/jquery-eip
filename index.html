@@ -9,12 +9,14 @@
     <div id="loading">
       <h2><span class="red">Loading...</span></h2>
     </div>
+    <div id="enable_button">
+      <input type="button" name="enabled" value="disable edit in place"/>
+    </div>
     <div id='content'>
       <div id='top'>
         <h1 class="eip">Edit-in-place jQuery Demo</h1>
         <h3 class="eip">Double-click on things, see what happens.</h3>
       </div>
-      <input type="button" name="enabled"/>
       <div id="left">
         <h2 class="eip">Foo</h2> <div class="eip">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
@@ -79,8 +81,10 @@
         $("#loading").remove();
         $("input[name='enabled']").click(function() {
           $.eip.enabled(! $.eip.enabled());
-          $(this).val($.eip.enabled() ? "disable" : "enable");
-        }).val($.eip.enabled() ? "disable" : "enable");
+          $(this).val(
+            ($.eip.enabled() ? "disable" : "enable") + " edit in place"
+          );
+        });
       });
     </script>
   </body>
