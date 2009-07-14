@@ -97,8 +97,8 @@
       "</style>"
     );
     $("#menu_"+wrapId+"_"+wrapId+"_formatselect_menu_co")
-      .live("mouseover", function(event) { alert("hi"); $.eip.enabled(false); })
-      .live("mouseout", function(event) { alert("bye"); $.eip.enabled(true); });
+      .live("mouseover", function(event) { $.eip.enabled(false); })
+      .live("mouseout", function(event) { $.eip.enabled(true); });
   });
 
 })(jQuery);
