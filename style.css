@@ -124,10 +124,16 @@ h4 {
   text-align: center;
 }
 
-#loading, #enable_button {
+#loading {
   position: fixed;
   top: 0px;
   left: 0px;
+}
+
+#enable_button {
+  position: fixed;
+  top: 0px;
+  right: 0px;
 }
 
 #loading h2 .red {
