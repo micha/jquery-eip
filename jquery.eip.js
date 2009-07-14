@@ -1,12 +1,6 @@
 (function($) {
 
   var wrapId            = "eip-mce-wrapper";
-  var topbarId          = "eip-topbar";
-  var blackoutId        = "eip-blackout";
-  var blackoutCloseId   = "eip-blackout-close";
-  var helpId            = "eip-help";
-
-  var buttonClass       = "eip-button";
 
   var wrapElem          = $("<div/>").attr("id", wrapId);
 
@@ -14,6 +8,82 @@
 
   $.eip = {
     init : function(hcss) {
+      $(".eip").eip();
+    }
+  };
+
+  var lock = false;
+
+  function hover_in(event) {
+    var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
+    $(this).data("oldbg", $(this).css("background-image"));
+    $(this).css("background-image", "url("+bgurl+")");
+    return false;
+  }
+
+  function hover_out(event) {
+    alert("hover out");
+    if (!lock) {
+      alert("hover out (no lock)");
+      $(this).css("background-image", $(this).data("oldbg"));
+      $(this).data("oldbg", null);
+    }
+    return false;
+  }
+
+  $.fn.eip = function() {
+    this.each(function() {
+      var a = this;
+      $(this).hover(
+        function(event) {
+          if (event.target === a)
+            alert("YES");
+          else
+            alert("NO");
+          var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
+          $(this).data("oldbg", $(this).css("background-image"));
+          $(this).css("background-image", "url("+bgurl+")");
+          return false;
+        },
+        function(event) {
+          $(this).css("background-image", $(this).data("oldbg"));
+          $(this).data("oldbg", null);
+          return false;
+        }
+      ).click(function(event) {
+        hover_out(event);
+        lock = true;
+        // tinymce editor
+        alert("in!");
+        $(this).wrap(wrapElem);
+        tinyMCE.execCommand('mceAddControl', false, wrapId);
+        $("body").one("click", function(event) {
+          alert("out!");
+          tinyMCE.execCommand('mceRemoveControl', false, wrapId);
+          $("#"+wrapId).children().addClass("eip");
+          $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
+          return false;
+        });
+        return false;
+      });
+
+    });
+    return this;
+  };
+
+  $(function() { $.eip.init(); });
+
+})(jQuery);
+
+  /*
+  var topbarId          = "eip-topbar";
+  var blackoutId        = "eip-blackout";
+  var blackoutCloseId   = "eip-blackout-close";
+  var helpId            = "eip-help";
+
+  var buttonClass       = "eip-button";
+  */
+
       /*
       $("head").append(  
         "<style type='text/css'> " +
@@ -84,62 +154,6 @@
         "</style>"
       );
       */
-
-      $(".eip").eip();
-    }
-  };
-
-  var lock = false;
-
-  function hover_in(event) {
-    alert("hover in");
-    var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
-    if (!lock) {
-      alert("hover in (no lock)");
-      $(this).data("oldbg", $(this).css("background-image"));
-      $(this).css("background-image", "url("+bgurl+")");
-    }
-    return false;
-  }
-
-  function hover_out(event) {
-    alert("hover out");
-    if (!lock) {
-      alert("hover out (no lock)");
-      $(this).css("background-image", $(this).data("oldbg"));
-      $(this).data("oldbg", null);
-    }
-    return false;
-  }
-
-  $.fn.eip = function() {
-    this.each(function() {
-      var a = $(this);
-      $(this).hover(hover_in, hover_out).click(function(event) {
-        hover_out(event);
-        lock = true;
-        // tinymce editor
-        alert("in!");
-        $(this).wrap(wrapElem);
-        tinyMCE.execCommand('mceAddControl', false, wrapId);
-        $("body").one("click", function(event) {
-          alert("out!");
-          tinyMCE.execCommand('mceRemoveControl', false, wrapId);
-          $("#"+wrapId).children().addClass("eip");
-          $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
-          return false;
-        });
-        return false;
-      });
-
-    });
-    return this;
-  };
-
-  $(function() { $.eip.init(); });
-
-})(jQuery);
-
       /*
         function(event) { 
           // disable editmode submit button if necessary
