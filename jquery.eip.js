@@ -33,6 +33,7 @@
   }
 
   function remove_mce(event) {
+    alert("-->> ["+$(event.target).attr("id")+"]");
     tinyMCE.execCommand('mceRemoveControl', false, wrapId);
     $("#"+wrapId).children().addClass("eip");
     $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
