@@ -89,16 +89,22 @@
     }
   };
 
+  var lock = false;
+
   function hover_in(event) {
     var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
-    $(this).data("oldbg", $(this).css("background-image"));
-    $(this).css("background-image", "url("+bgurl+")");
+    if (!lock) {
+      $(this).data("oldbg", $(this).css("background-image"));
+      $(this).css("background-image", "url("+bgurl+")");
+    }
     return false;
   }
 
   function hover_out(event) {
-    $(this).css("background-image", $(this).data("oldbg"));
-    $(this).data("oldbg", null);
+    if (!lock) {
+      $(this).css("background-image", $(this).data("oldbg"));
+      $(this).data("oldbg", null);
+    }
     return false;
   }
 
@@ -108,6 +114,7 @@
       $(this).hover(hover_in, hover_out).click(
         function(event) {
           hover_out(event);
+          lock = true;
           // tinymce editor
           alert("in!");
           $(this).wrap(wrapElem);
