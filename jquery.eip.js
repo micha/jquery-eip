@@ -33,7 +33,6 @@
   }
 
   function remove_mce(event) {
-    alert("-->> ["+$(event.target).attr("id")+"]");
     tinyMCE.execCommand('mceRemoveControl', false, wrapId);
     $("#"+wrapId).children().addClass("eip");
     $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
@@ -97,6 +96,9 @@
         "} "+
       "</style>"
     );
+    $("#menu_"+wrapId+"_"+wrapId+"_format_select_menu_co")
+      .live("mouseover", function(event) { $.eip.enabled(false); })
+      .live("mouseout", function(event) { $.eip.enabled(true); });
   });
 
 })(jQuery);
