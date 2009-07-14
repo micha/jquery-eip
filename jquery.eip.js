@@ -13,12 +13,8 @@
   var enableVal         = true;
 
   $.eip = {
-    enabled : function(val) {
-      return arguments.length 
-        ? (enableVal = $.hoverlay.enabled(val)) 
-        : enableVal;
-    },
     init : function(hcss) {
+      /*
       $("head").append(  
         "<style type='text/css'> " +
           "#"+wrapId+" { "+
@@ -87,28 +83,6 @@
           "} "+
         "</style>"
       );
-
-      if (hcss) $.hoverlay.css(hcss);
-
-      /*
-      $("a").unbind("mousedown")
-        .unbind("mouseup")
-        .unbind("click")
-        .click(function() { return false; })
-        .dblclick(function() { return false; });
-
-      var tbar, b1, b2;
-      tbar = $("<div/>").attr("id", topbarId);
-      tbar.append("<div style='width:20px;float:right'>&nbsp;</div>");
-      t1 = $("<div/>");
-      b1 = $("<input/>").attr("type", "button").addClass(buttonClass);
-      b2 = $("<input/>").attr("type", "button").addClass(buttonClass);
-      tbar.append(b2,b1,t1);
-      $("body").append(tbar);
-
-      b1.val("save");
-      b2.val("reset");
-      t1.text("Click somewhere");
       */
 
       $(".eip").eip();
@@ -116,12 +90,35 @@
   };
 
   $.fn.eip = function() {
-    if (!$.eip.enabled())
-      return this;
     this.each(function() {
       var a = $(this);
-      a.hoverlay(
-        { border : "1px solid black" },
+      $(this).hover(
+        function() {
+          var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
+          $(this).data("oldbg", $(this).css("background-image"));
+          $(this).css("background-image", "url("+bgurl+")");
+        },
+        function() {
+          $(this).css("background-image", $(this).data("oldbg"));
+          $(this).data("oldbg", null);
+        }
+      ).click(
+        function() {
+          // tinymce editor
+          $(this).wrap(wrapElem);
+          tinyMCE.execCommand('mceAddControl', false, wrapId);
+        }
+      );
+
+    });
+    return this;
+  };
+
+  $(function() { $.eip.init(); });
+
+})(jQuery);
+
+      /*
         function(event) { 
           // disable editmode submit button if necessary
           try { $.editmode.set.eip(); } catch (e) {}
@@ -170,10 +167,4 @@
           try { $.editmode.set.edit(); } catch (e) {}
         }
       );
-    });
-    return this;
-  };
-
-  $(function() { $.eip.init(); });
-
-})(jQuery);
+  */
