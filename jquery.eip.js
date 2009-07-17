@@ -5,10 +5,6 @@
   var uuid              = 0;
   var enabledVal        = false;
 
-  function noclick(event) {
-    return false;
-  }
-
   function hover_in(event) {
     if (!$.eip.enabled()) return;
     var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
@@ -50,10 +46,6 @@
 
   $.eip = {
     enabled: function(val) {
-      if (val)
-        $("a").bind("click", noclick);
-      else if (arguments.length)
-        $("a").unbind("click", noclick);
       return !arguments.length ? enabledVal : (enabledVal = val);
     }
   };
