@@ -14,10 +14,8 @@
   }
 
   function hover_out(event) {
-    if (!$(this).data("oldbg"))
-      $(this).data("oldbg", "");
     $(this).css("background-image", $(this).data("oldbg"));
-    $(this).data("oldbg", null);
+    $(this).removeData("oldbg");
   }
 
   function add_mce(event) {
