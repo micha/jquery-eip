@@ -6,10 +6,11 @@
   var enabledVal        = false;
 
   function hover_in(event) {
-    //if (!$.eip.enabled()) return;
-    var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
-    $(this).data("oldbg", $(this).css("background-image"));
-    $(this).css("background-image", "url("+bgurl+")");
+    if ($.eip.enabled()) {
+      var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
+      $(this).data("oldbg", $(this).css("background-image"));
+      $(this).css("background-image", "url("+bgurl+")");
+    }
   }
 
   function hover_out(event) {
