@@ -14,7 +14,9 @@
   }
 
   function hover_out(event) {
-    //$(this).css("background-image", $(this).data("oldbg"));
+    if (!$(this).data("oldbg"))
+      $(this).data("oldbg", "");
+    $(this).css("background-image", $(this).data("oldbg"));
     $(this).data("oldbg", null);
   }
 
