@@ -7,7 +7,7 @@
 
   function hover_in(event) {
     if ($.eip.enabled()) {
-      var bgurl = "http://cf.js.simplemiami.com/js/img/stripes.gif";
+      var bgurl = "img/stripes.gif";
       $(this).data("oldbg", $(this).css("background-image"));
       $(this).css("background-image", "url("+bgurl+")");
     }
