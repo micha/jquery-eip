@@ -32,9 +32,20 @@
   function remove_mce(event) {
     if (! $("#"+wrapId).size())
       return;
+
+    var wrapper  = $("#"+wrapId),
+        children = wrapper.children();
+
     tinyMCE.execCommand('mceRemoveControl', false, wrapId);
-    $("#"+wrapId).children().addClass("eip");
-    $("#"+wrapId).after($("#"+wrapId).children().eip()).remove();
+
+    wrapper  = $("#"+wrapId);
+    children = wrapper.children();
+
+    if (children.size() > 1)
+      wrapper.append($("<div class='eip'></div>").append(children));
+
+    wrapper.children().addClass("eip");
+    wrapper.after($("#"+wrapId).children().eip()).remove();
   }
 
   function body_click(event) {
